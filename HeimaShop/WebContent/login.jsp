@@ -54,7 +54,7 @@ font {
 					style="width: 440px; border: 1px solid #E7E7E7; padding: 20px 0 20px 30px; border-radius: 5px; margin-top: 60px; background: #fff;">
 					<font>会员登录</font>USER LOGIN
 					<div>&nbsp;</div>
-					<form class="form-horizontal" action ="${pageContext.request.contextPath}/UserServlet" method = "post">
+					<form class="form-horizontal" action ="UserServlet">
 						<div class="form-group">
 							<label for="username" class="col-sm-2 control-label">用户名</label>
 							<div class="col-sm-6">
@@ -65,7 +65,7 @@ font {
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 							<div class="col-sm-6">
-								<input type="password" class="form-control" id="inputPassword3" name ="password"
+								<input type="password" class="form-control" id="inputPassword3" name="password"
 									placeholder="请输入密码">
 							</div>
 						</div>
@@ -82,9 +82,9 @@ font {
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<div class="checkbox">
-									<label> <input type="checkbox" name="autoLogin" vlaue="1"> 自动登录
+									<label> <input type="checkbox"> 自动登录
 									</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label> <input
-										type="checkbox" value ="1"> 记住用户名
+										type="checkbox"> 记住用户名
 									</label>
 								</div>
 							</div>

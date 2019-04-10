@@ -10,19 +10,20 @@
 	<div class="col-md-5">
 		<img src="img/header.png" />
 	</div>
-	<div class="col-md-3" style="padding-top:20px">
+<div class="col-md-3" style="padding-top:20px">
 		<ol class="list-inline">
+			
 			<c:if test="${empty loginUser }">
-				<li><a href ="${pageContext.request.contextPath }/login.jsp">登录</a></li>
-				<li><a href ="${pageContext.request.contextPath }/register.jsp">注册</a></li>
-				<li><a href ="${pageContext.request.contextPath }/cart.jsp">购物车</a></li>
-				<li><a href ="${pageContext.request.contextPath }/order_list.jsp">我的订单</a></li>
-				
+				<li><a href="login.jsp">登录</a></li>
+				<li><a href="register.jsp">注册</a></li>
 			</c:if>
 			<c:if test="${!empty loginUser }">
-				<li>欢迎你，${loginUser.username }<li>
-				<li><a href="${pageContext.request.contextPath}/loginOut">退出</a></li>
+				<li>欢迎您,${loginUser.username }</li>
+				<li><a href="./loginOut">退出</a></li>
 			</c:if>
+			
+			<li><a href="cart.jsp">购物车</a></li>
+			<li><a href="order_list.jsp">我的订单</a></li>
 		</ol>
 	</div>
 </div>
@@ -64,12 +65,12 @@
 			$(function(){
 				var content = "";
 				$.post(
-					"${pageContext.request.contextPath}/categoryList",
+					"${pageContext.request.contextPath}/product?method=categoryList",
 					function(data){
 						//[{"cid":"xxx","cname":"xxxx"},{},{}]
 						//动态创建<li><a href="#">${category.cname }</a></li>
 						for(var i=0;i<data.length;i++){
-							content+="<li><a href='${pageContext.request.contextPath}/productListByCid?cid="+data[i].cid+"'>"+data[i].cname+"</a></li>";
+							content+="<li><a href='${pageContext.request.contextPath}/product?method=productList&cid="+data[i].cid+"'>"+data[i].cname+"</a></li>";
 						}
 						
 						//将拼接好的li放置到ul中
